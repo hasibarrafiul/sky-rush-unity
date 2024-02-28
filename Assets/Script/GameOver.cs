@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     public Canvas gameOverCanvas;
     public Text TotalLifetextComponent;
     public Button button;
+    public GameObject bombAudioObject;
 
 
     void onAwake()
@@ -36,6 +37,7 @@ public class GameOver : MonoBehaviour
         {
             if(totalLife > 1)
             {
+                playbombAudio();
                 totalLife--;
                 Destroy(collision.gameObject);
                 SetText("Total Life:" + totalLife.ToString());
@@ -140,6 +142,27 @@ public class GameOver : MonoBehaviour
             Debug.LogWarning("Script component not found!");
         }
     }
+
+    void playbombAudio()
+    {
+        if (bombAudioObject != null)
+            {
+                AudioSource bombAudioSource = bombAudioObject.GetComponent<AudioSource>();
+
+                if (bombAudioSource != null)
+                {
+                    bombAudioSource.Play();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the coin object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Coin object not found.");
+            }
+        }
 
 
 }

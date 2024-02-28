@@ -7,8 +7,10 @@ public class Point : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    public GameObject coinAudioObject;
     private int point = 0;
     public Text textComponent;
+
     void OnCollisionEnter(Collision collision)
     {
         
@@ -16,6 +18,7 @@ public class Point : MonoBehaviour
         {
             Debug.Log("Coin Collected");
             point++;
+            playCoinAudio();
             if(PlayerPrefs.GetInt("HighScore") < point)
             {
                 PlayerPrefs.SetInt("HighScore", point);
@@ -40,4 +43,24 @@ public class Point : MonoBehaviour
         }
     }
 
+    void playCoinAudio()
+    {
+        if (coinAudioObject != null)
+            {
+                AudioSource coinAudioSource = coinAudioObject.GetComponent<AudioSource>();
+
+                if (coinAudioSource != null)
+                {
+                    coinAudioSource.Play();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the coin object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Coin object not found.");
+            }
+        }
 }
