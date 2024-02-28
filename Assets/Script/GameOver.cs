@@ -11,6 +11,7 @@ public class GameOver : MonoBehaviour
     private bool isPaused = false;
     public Canvas gameOverCanvas;
     public Text TotalLifetextComponent;
+    public Button button;
 
 
     void onAwake()
@@ -58,6 +59,7 @@ public class GameOver : MonoBehaviour
     {
         TogglePause();
         disableMovement();
+        button.gameObject.SetActive(!button.gameObject.activeSelf);
         gameOverCanvas.gameObject.SetActive(true);
     }
 
@@ -86,6 +88,7 @@ public class GameOver : MonoBehaviour
         gameOverCanvas.gameObject.SetActive(true);
         enableMovement();
         TogglePause();
+        button.gameObject.SetActive(!button.gameObject.activeSelf);
 
     }
 

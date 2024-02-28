@@ -10,10 +10,41 @@ public class Movement : MonoBehaviour
     
     private bool isPaused = false;
     public Canvas pauseCanvas;
+    private Vector2 fingerDownPosition;
+    private Vector2 fingerUpPosition;
+    private bool swipeDetected = false;
+
+    public bool detectSwipeOnlyAfterRelease = false;
+    public float minDistanceForSwipe = 20f;
+    public Button button;
     
     void Update()
     {
-        
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                fingerDownPosition = touch.position;
+                fingerUpPosition = touch.position;
+                swipeDetected = false;
+            }
+
+            if (!detectSwipeOnlyAfterRelease && touch.phase == TouchPhase.Moved)
+            {
+                fingerUpPosition = touch.position;
+                DetectSwipe();
+            }
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                fingerUpPosition = touch.position;
+                DetectSwipe();
+            }
+        }
+
+
         if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)){
             if(!isPaused){
             transform.position += new Vector3(-1,0,0);
@@ -34,11 +65,13 @@ public class Movement : MonoBehaviour
      public void SetGamePause()
     {
         TogglePause();
+        button.gameObject.SetActive(!button.gameObject.activeSelf);
         
     }
 
     public void setGameResume(){
         TogglePause();
+        button.gameObject.SetActive(!button.gameObject.activeSelf);
         
     }
 
@@ -71,5 +104,32 @@ public class Movement : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         TogglePause();
+    }
+
+    void DetectSwipe()
+    {
+        if (!swipeDetected && Vector3.Distance(fingerDownPosition, fingerUpPosition) >= minDistanceForSwipe)
+        {
+            Vector2 direction = fingerUpPosition - fingerDownPosition;
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                if (direction.x > 0) // Right swipe
+                {
+                    Debug.Log("Right Swipe Detected!");
+                    swipeDetected = true;
+                    if(!isPaused){
+                    transform.position += new Vector3(1,0,0);
+                    }
+                }
+                else // Left swipe
+                {
+                    Debug.Log("Left Swipe Detected!");
+                    swipeDetected = true;
+                    if(!isPaused){
+                        transform.position += new Vector3(-1,0,0);
+                    }
+                }
+            }
+        }
     }
 }
