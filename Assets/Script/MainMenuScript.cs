@@ -15,11 +15,11 @@ public class MainMenuScript : MonoBehaviour
         }
         if(!PlayerPrefs.HasKey("MusicVolume"))
         {
-            PlayerPrefs.SetFloat("MusicVolume", -80f);
+            PlayerPrefs.SetFloat("MusicVolume", 0f);
         }
         if(!PlayerPrefs.HasKey("SFXVolume"))
         {
-            PlayerPrefs.SetFloat("SFXVolume", -80f);
+            PlayerPrefs.SetFloat("SFXVolume", 0f);
         }
 
         if(PlayerPrefs.HasKey("MusicVolume")){
