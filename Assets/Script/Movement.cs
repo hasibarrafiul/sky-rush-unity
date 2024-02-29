@@ -17,6 +17,10 @@ public class Movement : MonoBehaviour
     public bool detectSwipeOnlyAfterRelease = false;
     public float minDistanceForSwipe = 20f;
     public Button button;
+    public GameObject switchLaneAudioObject;
+    public GameObject runSoundGameObject;
+    public GameObject airSoundGameObject;
+    public AudioClip mainMenuAudioClip;
     
     void Update()
     {
@@ -47,11 +51,13 @@ public class Movement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)){
             if(!isPaused){
-            transform.position += new Vector3(-1,0,0);
+                playSwitchLaneAudio();
+                transform.position += new Vector3(-1,0,0);
             }
         }
         if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)){
             if(!isPaused){
+                playSwitchLaneAudio();
                 transform.position += new Vector3(1,0,0);
             }
         }
@@ -64,6 +70,8 @@ public class Movement : MonoBehaviour
 
      public void SetGamePause()
     {
+        stopAirAudio();
+        stopRunAudio();
         TogglePause();
         button.gameObject.SetActive(!button.gameObject.activeSelf);
         
@@ -102,6 +110,7 @@ public class Movement : MonoBehaviour
 
     public void backToMainMenu()
     {
+        AudioManager.instance.PlayAudio(mainMenuAudioClip);
         SceneManager.LoadScene("MainMenu");
         TogglePause();
     }
@@ -118,7 +127,8 @@ public class Movement : MonoBehaviour
                     Debug.Log("Right Swipe Detected!");
                     swipeDetected = true;
                     if(!isPaused){
-                    transform.position += new Vector3(1,0,0);
+                        playSwitchLaneAudio();
+                        transform.position += new Vector3(1,0,0);
                     }
                 }
                 else // Left swipe
@@ -126,10 +136,74 @@ public class Movement : MonoBehaviour
                     Debug.Log("Left Swipe Detected!");
                     swipeDetected = true;
                     if(!isPaused){
+                        playSwitchLaneAudio();
                         transform.position += new Vector3(-1,0,0);
                     }
                 }
             }
         }
     }
+
+    void playSwitchLaneAudio()
+        {
+        if (switchLaneAudioObject != null)
+            {
+                AudioSource switchLaneAudioSource = switchLaneAudioObject.GetComponent<AudioSource>();
+
+                if (switchLaneAudioSource != null)
+                {
+                    switchLaneAudioSource.Play();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the Game object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("object not found.");
+            }
+        }
+
+        void stopRunAudio()
+        {
+            if (runSoundGameObject != null)
+            {
+                AudioSource runAudioSource = runSoundGameObject.GetComponent<AudioSource>();
+
+                if (runAudioSource != null)
+                {
+                    runAudioSource.Stop();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the Game object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("object not found.");
+            }
+        }
+
+        void stopAirAudio()
+        {
+            if (airSoundGameObject != null)
+            {
+                AudioSource airAudioSource = airSoundGameObject.GetComponent<AudioSource>();
+
+                if (airAudioSource != null)
+                {
+                    airAudioSource.Stop();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the Game object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("object not found.");
+            }
+        }
 }

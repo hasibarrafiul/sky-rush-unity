@@ -19,6 +19,7 @@ public class SpawnGround : MonoBehaviour
     void Start()
     {
         wave();
+        AudioManager.instance.StopAudio();
     }
 
     void wave(){
@@ -26,12 +27,12 @@ public class SpawnGround : MonoBehaviour
         spawnGround();
         for(int i = 1; i < 5; i++)
         {
-            int[] randomX = {x, (x+3), (x-3)};
+            int[] randomX = {x, (x+2), (x-2)};
             int randomIndex = UnityEngine.Random.Range(0, randomX.Length);
             int selectedX = randomX[randomIndex];
             //x = Mathf.RoundToInt(Random.Range(-3, 4));
             y -= 5;
-            z += 25+handleSpeed;
+            z += 20+handleSpeed;
             spawnPosition = new Vector3(selectedX, y, z);
             spawnGround();
             handleSpeed ++;

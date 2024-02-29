@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/AudioController.unity
+    guid: 30e18647e9326df42a1c2b8c265ed5c8
   m_configObjects: {}

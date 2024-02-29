@@ -16,7 +16,7 @@ public class Point : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Coin"))
         {
-            Debug.Log("Coin Collected");
+            //Debug.Log("Coin Collected");
             point++;
             playCoinAudio();
             if(PlayerPrefs.GetInt("HighScore") < point)

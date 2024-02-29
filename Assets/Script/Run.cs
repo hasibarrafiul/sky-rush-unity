@@ -10,13 +10,16 @@ public class Run : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        moveSpeed += 0.001f;
-        
+        if(Time.timeScale != 0f){
+            moveSpeed += 0.001f;
+        }
         
         float rotationY = transform.rotation.eulerAngles.y;
-        if (rotationY != 0)
+        float rotationX = transform.rotation.eulerAngles.x;
+        float rotationZ = transform.rotation.eulerAngles.z;
+        if (rotationY != 0 || rotationX != 0 || rotationZ != 0)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }

@@ -13,6 +13,10 @@ public class GameOver : MonoBehaviour
     public Text TotalLifetextComponent;
     public Button button;
     public GameObject bombAudioObject;
+    public GameObject GameOverAudioObject;
+    public GameObject runSoundGameObject;
+    public GameObject airSoundGameObject;
+    public AudioClip mainMenuAudioClip;
 
 
     void onAwake()
@@ -46,6 +50,9 @@ public class GameOver : MonoBehaviour
             }
             else
             {
+                stopRunAudio();
+                stopAirAudio();
+                playGameOverAudio();
                 SetGameOver();
             }
             //SetGameOver();
@@ -53,6 +60,9 @@ public class GameOver : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Fall"))
         {
+            stopRunAudio();
+            stopAirAudio();
+            playGameOverAudio();
             SetGameOver();
         }
     }
@@ -111,8 +121,8 @@ public class GameOver : MonoBehaviour
     public void OnMainMenuButtonClick()
     {
         TogglePause();
+        AudioManager.instance.PlayAudio(mainMenuAudioClip);
         SceneManager.LoadScene("MainMenu");
-        
     }
 
     public void disableMovement()
@@ -164,5 +174,67 @@ public class GameOver : MonoBehaviour
             }
         }
 
+        void playGameOverAudio()
+        {
+        if (GameOverAudioObject != null)
+            {
+                AudioSource gameOverAudioSource = GameOverAudioObject.GetComponent<AudioSource>();
+
+                if (gameOverAudioSource != null)
+                {
+                    gameOverAudioSource.Play();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the Game over object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Coin object not found.");
+            }
+        }
+
+        void stopRunAudio()
+        {
+            if (runSoundGameObject != null)
+            {
+                AudioSource runAudioSource = runSoundGameObject.GetComponent<AudioSource>();
+
+                if (runAudioSource != null)
+                {
+                    runAudioSource.Stop();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the Game object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("object not found.");
+            }
+        }
+
+        void stopAirAudio()
+        {
+            if (airSoundGameObject != null)
+            {
+                AudioSource airAudioSource = airSoundGameObject.GetComponent<AudioSource>();
+
+                if (airAudioSource != null)
+                {
+                    airAudioSource.Stop();
+                }
+                else
+                {
+                    Debug.LogWarning("AudioSource component not found on the Game object.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("object not found.");
+            }
+        }
 
 }
