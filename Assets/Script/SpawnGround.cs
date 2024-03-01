@@ -15,11 +15,15 @@ public class SpawnGround : MonoBehaviour
     public int z = 10;
     private int handleSpeed = 0;
     
+    
 
     void Start()
     {
         wave();
-        AudioManager.instance.StopAudio();
+        if(AudioManager.instance != null){
+            AudioManager.instance.StopAudio();
+        }
+        
     }
 
     void wave(){
@@ -35,9 +39,9 @@ public class SpawnGround : MonoBehaviour
             z += 20+handleSpeed;
             spawnPosition = new Vector3(selectedX, y, z);
             spawnGround();
-            handleSpeed ++;
+            handleSpeed++;
             if(i == 4){
-                spawnMorePosition = new Vector3(selectedX, y+1, z);
+                spawnMorePosition = new Vector3(selectedX, y, z);
                 infinity.transform.position = new Vector3(selectedX, y-10, z);
                 spawnMoreGroundTrigger();
             }
@@ -76,7 +80,8 @@ public class SpawnGround : MonoBehaviour
         if (collision.gameObject.CompareTag("SpawnMore"))
         {
             y -= 5;
-            z += 25+handleSpeed;
+            z += 25+(handleSpeed/3);
+            //ChangeAnimation 
             wave();
         }
     }

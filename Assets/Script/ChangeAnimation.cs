@@ -10,6 +10,7 @@ public class ChangeAnimation : MonoBehaviour
     public RuntimeAnimatorController run;
     public GameObject runSoundGameObject;
     public GameObject airSoundGameObject;
+    public bool isGrounded = false;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class ChangeAnimation : MonoBehaviour
             //Debug.Log("Trigger");
             stopAirAudio();
             playRunAudio();
+            isGrounded = true;
             animator.runtimeAnimatorController = run;
         }
     }
@@ -34,6 +36,7 @@ public class ChangeAnimation : MonoBehaviour
             //Debug.Log("Trigger out");
             stopRunAudio();
             playAirAudio();
+            isGrounded = false;
             animator.runtimeAnimatorController = inAir;
         }
     }

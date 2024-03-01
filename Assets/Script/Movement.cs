@@ -66,6 +66,18 @@ public class Movement : MonoBehaviour
         {
             SetGamePause();
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(!isPaused){
+                ChangeAnimation groundCheck = FindObjectOfType<ChangeAnimation>();
+                bool isGrounded = groundCheck.isGrounded;
+                if(isGrounded){
+                    playSwitchLaneAudio();
+                    transform.position += new Vector3(0,2,0);
+                }
+            }
+        }
     }
 
      public void SetGamePause()
@@ -120,28 +132,60 @@ public class Movement : MonoBehaviour
         if (!swipeDetected && Vector3.Distance(fingerDownPosition, fingerUpPosition) >= minDistanceForSwipe)
         {
             Vector2 direction = fingerUpPosition - fingerDownPosition;
-            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+
+            // Calculate absolute values for direction components
+            float absX = Mathf.Abs(direction.x);
+            float absY = Mathf.Abs(direction.y);
+
+            if (absX > absY)
             {
+                // Horizontal swipe
                 if (direction.x > 0) // Right swipe
                 {
                     Debug.Log("Right Swipe Detected!");
                     swipeDetected = true;
-                    if(!isPaused){
+                    if (!isPaused)
+                    {
                         playSwitchLaneAudio();
-                        transform.position += new Vector3(1,0,0);
+                        transform.position += new Vector3(1, 0, 0);
                     }
                 }
                 else // Left swipe
                 {
                     Debug.Log("Left Swipe Detected!");
                     swipeDetected = true;
-                    if(!isPaused){
+                    if (!isPaused)
+                    {
                         playSwitchLaneAudio();
-                        transform.position += new Vector3(-1,0,0);
+                        transform.position += new Vector3(-1, 0, 0);
                     }
                 }
             }
+            else
+            {
+                // Vertical swipe
+                if (direction.y > 0) // Up swipe
+                {
+                    Debug.Log("Up Swipe Detected!");
+                    swipeDetected = true;
+                    if(!isPaused){
+                        ChangeAnimation groundCheck = FindObjectOfType<ChangeAnimation>();
+                        bool isGrounded = groundCheck.isGrounded;
+                        if(isGrounded){
+                            playSwitchLaneAudio();
+                            transform.position += new Vector3(0,2,0);
+                        }
+                    }
+                }
+                else // Down swipe
+                {
+                    Debug.Log("Down Swipe Detected!");
+                    swipeDetected = true;
+                    // Perform actions for swipe down
+                }
+            }
         }
+
     }
 
     void playSwitchLaneAudio()

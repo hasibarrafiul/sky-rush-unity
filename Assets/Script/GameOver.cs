@@ -70,6 +70,8 @@ public class GameOver : MonoBehaviour
     public void SetGameOver()
     {
         TogglePause();
+        Run toggleRunSpeed = FindObjectOfType<Run>();
+        toggleRunSpeed.StopRepeating();
         disableMovement();
         button.gameObject.SetActive(!button.gameObject.activeSelf);
         gameOverCanvas.gameObject.SetActive(true);
@@ -82,6 +84,7 @@ public class GameOver : MonoBehaviour
         if (isPaused)
         {
             // Pause the game
+            
             Time.timeScale = 0f;
             
         }
@@ -89,6 +92,7 @@ public class GameOver : MonoBehaviour
         {
             // Unpause the game
             Time.timeScale = 1f;
+            
         }
     }
 

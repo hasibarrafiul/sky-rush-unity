@@ -3054,7 +3054,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612029489}
   serializedVersion: 4
-  m_Mass: 1000
+  m_Mass: 100
   m_Drag: 1
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: -10, z: 0}
@@ -3072,7 +3072,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1612029495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3125,8 +3125,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7664528, y: 2.338211, z: 0.6187191}
-  m_Center: {x: 0.031924784, y: 0.6063385, z: 0.045041084}
+  m_Size: {x: 0.7664528, y: 1.8439407, z: 0.6187191}
+  m_Center: {x: 0.031924784, y: 0.85347366, z: 0.045041084}
 --- !u!114 &1612029498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3144,6 +3144,7 @@ MonoBehaviour:
   run: {fileID: 9100000, guid: acc89ca6d7a4da348809a8d201da3bc6, type: 2}
   runSoundGameObject: {fileID: 1059876019}
   airSoundGameObject: {fileID: 1624878263}
+  isGrounded: 0
 --- !u!114 &1612029499
 MonoBehaviour:
   m_ObjectHideFlags: 0
