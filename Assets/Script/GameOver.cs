@@ -17,36 +17,41 @@ public class GameOver : MonoBehaviour
     public GameObject runSoundGameObject;
     public GameObject airSoundGameObject;
     public AudioClip mainMenuAudioClip;
-
-
-    void onAwake()
-    {
-        
-        if (TotalLifetextComponent != null)
-        {
-            // Set the text value
-            TotalLifetextComponent.text = "Total Life:" + totalLife.ToString();
-        }
-        else
-        {
-            Debug.LogError("Text component is not assigned!");
-        }
-        //SetText("Total Life:" + totalLife.ToString());
-    }
+    public GameObject lifeOne;
+    public GameObject lifeTwo;
+    public GameObject lifeThree;
+    private Image lifeOneSprite;
+    private Image lifeTwoSprite;
+    private Image lifeThreeSprite;
+    public Sprite noLifeSprite;
 
     void OnCollisionEnter(Collision collision)
     {
+        lifeThreeSprite = lifeThree.GetComponent<Image>();
+        lifeTwoSprite= lifeTwo.GetComponent<Image>();
+        lifeOneSprite = lifeOne.GetComponent<Image>();
         
         if (collision.gameObject.CompareTag("Obstacles"))
         {
+            
             if(totalLife > 1)
             {
                 playbombAudio();
                 totalLife--;
                 Destroy(collision.gameObject);
-                SetText("Total Life:" + totalLife.ToString());
-
-                //Debug.Log("Life: " + totalLife);
+                //SetText("Total Life:" + totalLife.ToString());
+                if(totalLife == 2)
+                {
+                    lifeThreeSprite.sprite = noLifeSprite;
+                }
+                if(totalLife == 1)
+                {
+                    lifeTwoSprite.sprite = noLifeSprite;
+                }
+                if(totalLife == 0)
+                {
+                    lifeOneSprite.sprite = noLifeSprite;
+                }
             }
             else
             {
