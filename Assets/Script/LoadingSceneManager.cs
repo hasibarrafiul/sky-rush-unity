@@ -20,6 +20,23 @@ public class LoadingSceneManager : MonoBehaviour
     {
         StartCoroutine(LoadSceneAsync());
         zeroPercentBar.SetActive(true);
+        StartCoroutine(loadingBar());
+    }
+    
+    IEnumerator loadingBar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        zeroPercentBar.SetActive(false);
+        twentyPercentBar.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        twentyPercentBar.SetActive(false);
+        fortyPercentBar.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        fortyPercentBar.SetActive(false);
+        sixtyPercentBar.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        sixtyPercentBar.SetActive(false);
+        eightyPercentBar.SetActive(true);
     }
 
     IEnumerator LoadSceneAsync()
@@ -31,32 +48,9 @@ public class LoadingSceneManager : MonoBehaviour
 
         while (!operation.isDone)
         {
-            // Display loading progress (e.g., update progress bar)
-            print(operation.progress);
-            if (operation.progress >= 0.2f)
-            {
-                zeroPercentBar.SetActive(false);
-                twentyPercentBar.SetActive(true);
-            }
-            if (operation.progress >= 0.4f)
-            {
-                twentyPercentBar.SetActive(false);
-                fortyPercentBar.SetActive(true);
-            }
-            if (operation.progress >= 0.6f)
-            {
-                fortyPercentBar.SetActive(false);
-                sixtyPercentBar.SetActive(true);
-            }
-            if (operation.progress >= 0.8f)
-            {
-                sixtyPercentBar.SetActive(false);
-                eightyPercentBar.SetActive(true);
-            }
+            
             if (operation.progress >= 0.9f)
             {
-                // When the loading progress is nearly complete
-                // (0.9f is considered fully loaded), allow scene activation
                 eightyPercentBar.SetActive(false);
                 hundredPercentBar.SetActive(true);
                 operation.allowSceneActivation = true;
