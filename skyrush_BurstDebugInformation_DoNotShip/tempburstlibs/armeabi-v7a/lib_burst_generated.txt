@@ -12,11 +12,13 @@ Library: F:\Projects\SkyRush\Temp\BurstOutput\tempburstlibs\armeabi-v7a\lib_burs
 --assembly-defines=UnityEngine;
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary;
+--assembly-defines=Unity.VisualEffectGraph.Runtime;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.ProBuilder.Stl;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.ProBuilder;
+--assembly-defines=Unity.TerrainTools;
 --assembly-defines=Unity.VisualScripting.Core;
 --assembly-defines=Unity.ProBuilder.Csg;
 --assembly-defines=Unity.RenderPipelines.Universal.Config.Runtime;
@@ -77,11 +79,13 @@ Library: F:\Projects\SkyRush\Temp\BurstOutput\tempburstlibs\armeabi-v7a\lib_burs
 --assembly-defines=UnityEngine;
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary;
+--assembly-defines=Unity.VisualEffectGraph.Runtime;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.ProBuilder.Stl;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.ProBuilder;
+--assembly-defines=Unity.TerrainTools;
 --assembly-defines=Unity.VisualScripting.Core;
 --assembly-defines=Unity.ProBuilder.Csg;
 --assembly-defines=Unity.RenderPipelines.Universal.Config.Runtime;
