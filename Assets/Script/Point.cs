@@ -17,6 +17,8 @@ public class Point : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             //Debug.Log("Coin Collected");
+            GameObject sparkObject = transform.Find("Spark").gameObject;
+            PlaySpark(sparkObject);
             point++;
             playCoinAudio();
             if(PlayerPrefs.GetInt("HighScore") < point)
@@ -63,4 +65,32 @@ public class Point : MonoBehaviour
                 Debug.LogWarning("Coin object not found.");
             }
         }
+
+        public void PlaySpark(GameObject explosionObject)
+        {
+        // Find the "explosion" game object by name
+        
+
+        // Check if the "explosion" game object is found
+        if (explosionObject != null)
+        {
+            // Find the Particle System component within the "smokyExplosion" child game object
+            ParticleSystem explosionParticle = explosionObject.transform.Find("BasicSpark").GetComponent<ParticleSystem>();
+
+            // Check if the Particle System component is not null
+            if (explosionParticle != null)
+            {
+                // Play the particle system
+                explosionParticle.Play();
+            }
+            else
+            {
+                Debug.LogError("Particle system component not found in BasicSpark.");
+            }
+        }
+        else
+        {
+            Debug.LogError("BasicSpark game object not found.");
+        }
+    }
 }

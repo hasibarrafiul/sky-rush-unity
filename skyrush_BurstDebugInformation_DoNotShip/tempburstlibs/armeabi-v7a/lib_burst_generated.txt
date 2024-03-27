@@ -15,6 +15,7 @@ Library: F:\Projects\SkyRush\Temp\BurstOutput\tempburstlibs\armeabi-v7a\lib_burs
 --assembly-defines=Unity.VisualEffectGraph.Runtime;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
+--assembly-defines=Unity.Postprocessing.Runtime;
 --assembly-defines=Unity.ProBuilder.Stl;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.ProBuilder;
@@ -29,8 +30,8 @@ Library: F:\Projects\SkyRush\Temp\BurstOutput\tempburstlibs\armeabi-v7a\lib_burs
 --assembly-defines=Unity.InputSystem.ForUI;
 --assembly-defines=Unity.RenderPipelines.Core.ShaderLibrary;
 --assembly-defines=Unity.ProBuilder.Poly2Tri;
---assembly-defines=Unity.ProBuilder.KdTree;
 --assembly-defines=Unity.Mathematics;
+--assembly-defines=Unity.ProBuilder.KdTree;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.RenderPipelines.Universal.Shaders;
 --assembly-defines=Unity.VisualScripting.State;
@@ -82,6 +83,7 @@ Library: F:\Projects\SkyRush\Temp\BurstOutput\tempburstlibs\armeabi-v7a\lib_burs
 --assembly-defines=Unity.VisualEffectGraph.Runtime;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
+--assembly-defines=Unity.Postprocessing.Runtime;
 --assembly-defines=Unity.ProBuilder.Stl;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.ProBuilder;
@@ -96,8 +98,8 @@ Library: F:\Projects\SkyRush\Temp\BurstOutput\tempburstlibs\armeabi-v7a\lib_burs
 --assembly-defines=Unity.InputSystem.ForUI;
 --assembly-defines=Unity.RenderPipelines.Core.ShaderLibrary;
 --assembly-defines=Unity.ProBuilder.Poly2Tri;
---assembly-defines=Unity.ProBuilder.KdTree;
 --assembly-defines=Unity.Mathematics;
+--assembly-defines=Unity.ProBuilder.KdTree;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.RenderPipelines.Universal.Shaders;
 --assembly-defines=Unity.VisualScripting.State;

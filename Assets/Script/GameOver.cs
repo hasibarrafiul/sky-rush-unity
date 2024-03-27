@@ -34,7 +34,7 @@ public class GameOver : MonoBehaviour
             if(totalLife > 1)
             {
                 GameObject explosionObject = transform.Find("Explosion").gameObject;
-            PlayExplosion(explosionObject);
+                PlayExplosion(explosionObject);
                 playbombAudio();
                 totalLife--;
                 Destroy(collision.gameObject);
@@ -271,6 +271,4 @@ public class GameOver : MonoBehaviour
             Debug.LogError("Explosion game object not found.");
         }
     }
-         
-
 }
