@@ -25,17 +25,16 @@ public class GameOver : MonoBehaviour
     private Image lifeThreeSprite;
     public Sprite noLifeSprite;
 
-    void OnCollisionEnter(Collision collision)
-    {
+    void OnCollisionEnter(Collision collision){
         lifeThreeSprite = lifeThree.GetComponent<Image>();
         lifeTwoSprite= lifeTwo.GetComponent<Image>();
         lifeOneSprite = lifeOne.GetComponent<Image>();
         
-        if (collision.gameObject.CompareTag("Obstacles"))
-        {
-            
+        if (collision.gameObject.CompareTag("Obstacles")){
             if(totalLife > 1)
             {
+                GameObject explosionObject = transform.Find("Explosion").gameObject;
+            PlayExplosion(explosionObject);
                 playbombAudio();
                 totalLife--;
                 Destroy(collision.gameObject);
@@ -245,5 +244,33 @@ public class GameOver : MonoBehaviour
                 Debug.LogWarning("object not found.");
             }
         }
+    public void PlayExplosion(GameObject explosionObject)
+    {
+        // Find the "explosion" game object by name
+        
+
+        // Check if the "explosion" game object is found
+        if (explosionObject != null)
+        {
+            // Find the Particle System component within the "smokyExplosion" child game object
+            ParticleSystem explosionParticle = explosionObject.transform.Find("SmokeyExplosion").GetComponent<ParticleSystem>();
+
+            // Check if the Particle System component is not null
+            if (explosionParticle != null)
+            {
+                // Play the particle system
+                explosionParticle.Play();
+            }
+            else
+            {
+                Debug.LogError("Particle system component not found in smokyExplosion.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Explosion game object not found.");
+        }
+    }
+         
 
 }
