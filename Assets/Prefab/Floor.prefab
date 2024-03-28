@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 140686639291103231}
   - component: {fileID: 8953578160479007827}
   - component: {fileID: 245828549677710686}
+  - component: {fileID: 343610879282182454}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Ground
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4433360973216454962}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 69, z: -16}
   m_LocalScale: {x: 3, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
@@ -61,6 +62,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -150,3 +153,16 @@ MonoBehaviour:
     type: 3}
   coinPrefabs: {fileID: 1343084654189915614, guid: fd7b197e3654c894cb97446a32b4e42e,
     type: 3}
+--- !u!114 &343610879282182454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433360973216454962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b59ccd1d460c40982f6437cf17ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 60

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 634192319091135778}
   - component: {fileID: 8161711859425843554}
   - component: {fileID: 2388411285488510653}
+  - component: {fileID: 2279962346321536511}
   m_Layer: 0
   m_Name: Spikeball_Big
   m_TagString: Obstacles
@@ -59,6 +60,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -106,3 +109,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.0934668, y: 4.0934668, z: 4.0934668}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2279962346321536511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478402402489496658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b59ccd1d460c40982f6437cf17ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 60

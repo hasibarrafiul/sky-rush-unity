@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5324091935460272260}
   - component: {fileID: 4237701331416262194}
   - component: {fileID: 1550989751106607075}
+  - component: {fileID: 2638226617309580463}
   m_Layer: 0
   m_Name: GoldCoin
   m_TagString: Coin
@@ -68,6 +69,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 100
+--- !u!114 &2638226617309580463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343084654189915614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b59ccd1d460c40982f6437cf17ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 60
 --- !u!1 &5022540027954970673
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +140,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932016015846043696}
   - component: {fileID: 1536436137933824638}
+  - component: {fileID: 4278401858292677192}
   m_Layer: 0
   m_Name: spawnMore
   m_TagString: SpawnMore
@@ -53,3 +54,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4278401858292677192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998341369127555090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b59ccd1d460c40982f6437cf17ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 60
