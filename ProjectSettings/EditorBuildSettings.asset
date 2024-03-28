@@ -20,4 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AudioController.unity
     guid: 30e18647e9326df42a1c2b8c265ed5c8
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: 8bf482c1e6bb8c440bf5b296f24acda8, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3578c198c5372e2429670398d86a601d,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 1cf390f48c29f2047b389cd877868701, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 7f096dfa34524ad4383e6b01799987d1, type: 2}
