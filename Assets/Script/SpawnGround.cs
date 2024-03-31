@@ -31,7 +31,7 @@ public class SpawnGround : MonoBehaviour
         spawnGround();
         for(int i = 1; i < 5; i++)
         {
-            int[] randomX = {x, (x+2), (x-2)};
+            int[] randomX = {x, (x+1), (x-1)};
             int randomIndex = UnityEngine.Random.Range(0, randomX.Length);
             int selectedX = randomX[randomIndex];
             //x = Mathf.RoundToInt(Random.Range(-3, 4));
@@ -80,7 +80,7 @@ public class SpawnGround : MonoBehaviour
         if (collision.gameObject.CompareTag("SpawnMore"))
         {
             y -= 5;
-            z += 25+(handleSpeed/3);
+            z += 25+(handleSpeed/2);
             //ChangeAnimation 
             wave();
         }
