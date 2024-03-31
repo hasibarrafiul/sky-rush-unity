@@ -28,6 +28,10 @@ public class MainMenuScript : MonoBehaviour
         if(PlayerPrefs.HasKey("SFXVolume")){
             mainMixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
         }
+        if(PlayerPrefs.GetInt("NotFirstTime") == null)
+        {
+            PlayerPrefs.SetInt("NotFirstTime", 0);
+        }
     }
     public void StartTheGame()
     {
