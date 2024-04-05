@@ -10,6 +10,10 @@ Assets used:
 7. Unity Chan <br>
 UI elements: vecteezy.com <br>
 Sounds: Mixkit.co and pixabay.com <br>
+<br>
+
+Internal testing link: https://play.google.com/apps/test/com.techrz.skyrush/1
+<br>
 
 Screenshots: <br>
 ![Alt text](1.jpg?raw=true)
@@ -21,9 +25,7 @@ Screenshots: <br>
 ![Alt text](7.jpg?raw=true)
 ![Alt text](8.jpg?raw=true)
 
-<br>
 
-Internal testing link: https://play.google.com/apps/test/com.techrz.skyrush/1
 
 
 
