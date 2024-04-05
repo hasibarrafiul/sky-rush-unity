@@ -21,4 +21,9 @@ Screenshots: <br>
 ![Alt text](7.jpg?raw=true)
 ![Alt text](8.jpg?raw=true)
 
+<br>
+
+Internal testing link: https://play.google.com/apps/test/com.techrz.skyrush/1
+
+
 
