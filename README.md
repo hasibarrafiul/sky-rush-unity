@@ -1,5 +1,7 @@
 This is a endless runner game. Here the player has to collect coins while avoiding bombs. This game is placed on sky where the player has to run through floating platforms.
-
+<br>
+Playstore link: https://play.google.com/store/apps/details?id=com.techrz.skyrush
+<br>
 Assets used: 
 1. Platform Tiles - Poly Pack
 2. Enemy_Spikeball
@@ -10,9 +12,8 @@ Assets used:
 7. Unity Chan <br>
 UI elements: vecteezy.com <br>
 Sounds: Mixkit.co and pixabay.com <br>
-<br>
 
-Internal testing link: https://play.google.com/apps/test/com.techrz.skyrush/1
+
 <br>
 
 Screenshots: <br>
